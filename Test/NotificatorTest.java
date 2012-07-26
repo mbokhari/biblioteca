@@ -1,5 +1,8 @@
 import org.junit.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -11,24 +14,30 @@ would it be helpful to use the java.io.Console class? Hmm.
 
 public class NotificatorTest {
 
+    final ByteArrayOutputStream outputReader = new ByteArrayOutputStream();
+
     @Test
     public void testWelcomeScreen() throws Exception {
         //given
         Notificator message = new Notificator();
+        System.setOut(new PrintStream(outputReader));
         //when
-        String welcomeMessage = message.DisplayWelcomeMessage();
+        message.DisplayWelcomeMessage();
+        final String standardOutput = outputReader.toString().trim();
         //then
-        assertThat(welcomeMessage,is("Welcome to Biblioteca!"));
+        assertThat(standardOutput,is("Welcome to Biblioteca!"));
     }
 
     @Test
     public void testNotifyWhenSelectingNonValidOption() throws Exception {
         //given
         Notificator message = new Notificator();
+        System.setOut(new PrintStream(outputReader));
         //when
-        String notAValidMenuOptionMessage = message.DisplayErrorMessageWhenSelectingNonValidOption();
+        message.DisplayErrorMessageWhenSelectingNonValidOption();
+        final String standardOutput = outputReader.toString().trim();
         //then
-        assertThat(notAValidMenuOptionMessage, is("The menu option you have selected is not valid"));
+        assertThat(standardOutput, is("The menu option you have selected is not valid"));
 
     }
 
@@ -36,20 +45,24 @@ public class NotificatorTest {
     public void testNotificationForSuccessfullyReservingBook() throws Exception {
         //given
         Notificator message = new Notificator();
+        System.setOut(new PrintStream(outputReader));
         //when
-        String reservationConfirmationMessage = message.displayReservationConfirmationMessage();
+        message.displayReservationConfirmationMessage();
+        final String standardOutput = outputReader.toString().trim();
         //then
-        assertThat(reservationConfirmationMessage, is("The reservation has been successful"));
+        assertThat(standardOutput, is("The reservation has been successful"));
     }
 
     @Test
     public void testNotificationForBookNotAvailable() throws Exception {
         //given
         Notificator message = new Notificator();
+        System.setOut(new PrintStream(outputReader));
         //when
-        String bookNotAvailableMessage = message.displayBookNotAvailableMessage();
+        message.displayBookNotAvailableMessage();
+        final String standardOutput = outputReader.toString().trim();
         //then
-        assertThat(bookNotAvailableMessage,is("The book is currently not available"));
+        assertThat(standardOutput,is("The book is currently not available"));
     }
 
 }

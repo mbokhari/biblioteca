@@ -1,18 +1,18 @@
 public class Notificator {
 
-    public String DisplayWelcomeMessage() {
-        return "Welcome to Biblioteca!";
+    public void DisplayWelcomeMessage() {
+        System.out.println("Welcome to Biblioteca!");
     }
 
-    public String DisplayErrorMessageWhenSelectingNonValidOption() {
-        return "The menu option you have selected is not valid";
+    public void DisplayErrorMessageWhenSelectingNonValidOption() {
+        System.out.println("The menu option you have selected is not valid");
     }
 
-    public String displayReservationConfirmationMessage() {
-        return "The reservation has been successful";
+    public void displayReservationConfirmationMessage() {
+        System.out.println("The reservation has been successful");
     }
 
-    public String displayBookNotAvailableMessage() {
-        return "The book is currently not available";
+    public void displayBookNotAvailableMessage() {
+        System.out.println("The book is currently not available");
     }
 }
