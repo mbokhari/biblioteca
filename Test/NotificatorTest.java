@@ -22,7 +22,7 @@ public class NotificatorTest {
         Notificator message = new Notificator();
         System.setOut(new PrintStream(outputReader));
         //when
-        message.DisplayWelcomeMessage();
+        message.displayWelcomeMessage();
         final String standardOutput = outputReader.toString().trim();
         //then
         assertThat(standardOutput,is("Welcome to Biblioteca!"));
@@ -34,7 +34,7 @@ public class NotificatorTest {
         Notificator message = new Notificator();
         System.setOut(new PrintStream(outputReader));
         //when
-        message.DisplayErrorMessageWhenSelectingNonValidOption();
+        message.displayErrorMessageWhenSelectingNonValidOption();
         final String standardOutput = outputReader.toString().trim();
         //then
         assertThat(standardOutput, is("The menu option you have selected is not valid"));
@@ -63,6 +63,19 @@ public class NotificatorTest {
         final String standardOutput = outputReader.toString().trim();
         //then
         assertThat(standardOutput,is("The book is currently not available"));
+    }
+
+    @Test
+    public void testSeeListOnMenu() throws Exception {
+        //given
+        Notificator message = new Notificator();
+        System.setOut(new PrintStream(outputReader));
+        //when
+        message.displayMenu();
+        final String standardOutput = outputReader.toString().trim();
+        //then
+        assertThat(standardOutput, is("Please choose an option from the following\n[1] View all books\n[2] Reserve book\n[3] Retrieve a book\n[4] Quit"));
+
     }
 
 }

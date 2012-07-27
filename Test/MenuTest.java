@@ -1,29 +1,28 @@
 import org.junit.Test;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Scanner;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 public class MenuTest {
+    final ByteArrayOutputStream outputReader = new ByteArrayOutputStream();
 
     @Test
-    public void testSeeListOnMenu() throws Exception {
+    public void testSelectMenuOption() throws Exception {
         //given
-        ArrayList<String> menuOptions = new ArrayList<String>();
-        menuOptions.add("View books");
-        menuOptions.add("Reserve books");
-        menuOptions.add("Get book");
-        menuOptions.add("Quit");
-        BibliotecaMenu menu = new BibliotecaMenu(menuOptions);
+        BibliotecaMenu menu = new BibliotecaMenu();
+        System.setOut(new PrintStream(outputReader));
+
         //when
-        ArrayList<String> allMenuItems = menu.returnAllMenuItems();
+        menu.menuSelection(1);
+        final String standardOutput = outputReader.toString().trim();
+
         //then
-        assertThat(allMenuItems.size(), is(4));
+        assertThat(standardOutput, is("You have chosen to view all the books in the library"));
 
     }
-
-//    @Test
-//    public void testSelectMenuOption() throws Exception {
-//
-//    }
 
 }
