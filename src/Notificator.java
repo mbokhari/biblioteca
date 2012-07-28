@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Notificator {
 
     public void displayWelcomeMessage() {
@@ -25,4 +27,12 @@ public class Notificator {
 
         System.out.println("\n>>");
     }
+
+    public void displayAllBooksInLibrary(ArrayList<Book> books) {
+        System.out.println("Printing all books in Library");
+        for (Book book : books) {
+            book.printBook();
+        }
+    }
+
 }

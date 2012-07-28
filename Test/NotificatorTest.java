@@ -2,6 +2,7 @@ import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -73,4 +74,18 @@ public class NotificatorTest {
 
     }
 
+    @Test
+    public void testDisplayAllBooks() throws Exception {
+        //given
+        Notificator message = new Notificator();
+        ArrayList<Book> books = new ArrayList<Book>();
+        books.add(new Book("The Secret History"));
+        System.setOut(new PrintStream(outputReader));
+        //when
+        message.displayAllBooksInLibrary(books);
+        final String standardOutput = outputReader.toString().trim();
+        //then
+        assertThat(standardOutput, is("Printing all books in Library\nThe Secret History"));
+
+    }
 }

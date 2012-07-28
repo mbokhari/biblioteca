@@ -21,7 +21,7 @@ public class LibraryTest {
         System.setOut(new PrintStream(outputReader));
 
         //when
-        library.displayAllBooksInLibrary();
+        library.returnAllBooksInLibrary();
         final String standardOutput = outputReader.toString().trim();
 
         //then

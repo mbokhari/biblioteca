@@ -15,8 +15,8 @@ public class Main {
         int selection = input.nextInt();
         input.nextLine();
 
-        BibliotecaMenu menu = new BibliotecaMenu();
-        menu.menuSelection(library,selection);
+        Menu menu = new Menu();
+        menu.menuSelection(selection);
 
 
 

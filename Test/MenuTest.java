@@ -2,7 +2,6 @@ import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -13,15 +12,17 @@ public class MenuTest {
     @Test
     public void testSelectMenuOption() throws Exception {
         //given
-        Library library = new Library(new ArrayList<Book>());
-        BibliotecaMenu menu = new BibliotecaMenu();
+        ArrayList<Book> books = new ArrayList<Book>();
+        books.add(new Book("The Secret History"));
+        Library library = new Library(books);
+        Menu menu = new Menu();
         System.setOut(new PrintStream(outputReader));
 
         //when
-        menu.menuSelection(library,1);
+        menu.menuSelection(1);
         final String standardOutput = outputReader.toString().trim();
 
         //then
-        assertThat(standardOutput, is("You have chosen to view all the books in the library"));
+        assertThat(standardOutput, is("You have chosen to view all the books in the library\nThe Secret History"));
     }
 }

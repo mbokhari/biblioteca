@@ -9,10 +9,8 @@ public class Library  {
         this.books = books;
     }
 
-    public void displayAllBooksInLibrary() {
-        for (Book book : books) {
-            book.printBook();
-        }
+    public ArrayList<Book> returnAllBooksInLibrary() {
+        return books;
     }
 
 
@@ -22,9 +20,11 @@ public class Library  {
         }
     }
 
-    public void retrieveBook(String title) {
+    public Book retrieveBook(String title) {
         for (Book book : books) {
-            Book retrievedBook = book.retrieveBookByTitle(title);
+            return book.retrieveBookByTitle(title);
         }
+
+        return null;
     }
 }
