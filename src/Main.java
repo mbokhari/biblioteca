@@ -1,9 +1,11 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String [ ] args)
     {
+        Library library = new Library(new ArrayList<Book>());
         Notificator message = new Notificator();
         Scanner input = new Scanner(System.in);
 
@@ -14,7 +16,7 @@ public class Main {
         input.nextLine();
 
         BibliotecaMenu menu = new BibliotecaMenu();
-        menu.menuSelection(selection);
+        menu.menuSelection(library,selection);
 
 
 

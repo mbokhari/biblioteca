@@ -6,11 +6,6 @@ import java.io.PrintStream;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-/*
-I know that there is much more to do for these tests, I think I have to use the input/output
-Class thingy in java, but I'm not sure how to use it. Also this being a console application,
-would it be helpful to use the java.io.Console class? Hmm.
- */
 
 public class NotificatorTest {
 

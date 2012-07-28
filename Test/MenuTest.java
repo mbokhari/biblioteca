@@ -13,16 +13,15 @@ public class MenuTest {
     @Test
     public void testSelectMenuOption() throws Exception {
         //given
+        Library library = new Library(new ArrayList<Book>());
         BibliotecaMenu menu = new BibliotecaMenu();
         System.setOut(new PrintStream(outputReader));
 
         //when
-        menu.menuSelection(1);
+        menu.menuSelection(library,1);
         final String standardOutput = outputReader.toString().trim();
 
         //then
         assertThat(standardOutput, is("You have chosen to view all the books in the library"));
-
     }
-
 }

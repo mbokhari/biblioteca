@@ -1,16 +1,30 @@
 import java.util.ArrayList;
 
-public class Library {
+public class Library  {
 
-    private ArrayList<String> books = new ArrayList<String>();
+    Notificator message = new Notificator();
+    private ArrayList<Book> books = new ArrayList<Book>();
 
-    public Library(ArrayList<String> books) {
+    public Library(ArrayList<Book> books) {
         this.books = books;
     }
 
-    public ArrayList<String> returnAllBooksInLibrary() {
-        return books;
+    public void displayAllBooksInLibrary() {
+        for (Book book : books) {
+            book.printBook();
+        }
     }
 
 
+    public void reserveBook(String title) {
+        for (Book book : books) {
+            book.reserveBook(title);
+        }
+    }
+
+    public void retrieveBook(String title) {
+        for (Book book : books) {
+            Book retrievedBook = book.retrieveBookByTitle(title);
+        }
+    }
 }

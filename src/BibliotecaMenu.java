@@ -8,6 +8,8 @@ public class BibliotecaMenu {
     private static Scanner input = new Scanner(System.in);
     private Notificator notifier = new Notificator();
 
+
+
     public BibliotecaMenu() {
         menuOptions.add("View books");
         menuOptions.add("Reserve books");
@@ -18,23 +20,22 @@ public class BibliotecaMenu {
 
     public ArrayList<String> returnAllMenuItems() {
         return menuOptions;
-//       System.out.println(menuOptions);
     }
 
 
-    public void menuSelection(int selection) {
-//            selection = input.nextInt();
-//            input.nextLine();
+    public void menuSelection(Library library, int selection) {
 
             switch (selection){
                 case 1: System.out.println("You have chosen to view all the books in the library");
-                    this.returnAllMenuItems();
+                    library.displayAllBooksInLibrary();
                     break;
-                case 2: System.out.println("You have chosen to reserve a book");
-                    this.reserveBook();
+                case 2: System.out.println("You have chosen to reserve a book\n Enter the title of the book you want to reserve:");
+                    String reservingTitle = input.next();
+                    library.reserveBook(reservingTitle);
                     break;
                 case 3: System.out.println("You have chosen to retrieve a book");
-                    this.retrieveBook();
+                    String retrievingTitle = input.next();
+                    library.retrieveBook(retrievingTitle);
                     break;
                 case 4: System.out.println("Quitting...");
                     System.exit(1);
@@ -43,12 +44,6 @@ public class BibliotecaMenu {
             }
     }
 
-    public void reserveBook() {
 
-    }
-
-    public void retrieveBook() {
-
-    }
 }
 
