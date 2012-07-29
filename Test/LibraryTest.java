@@ -9,6 +9,8 @@ import static org.junit.Assert.assertThat;
 public class LibraryTest {
     final ByteArrayOutputStream outputReader = new ByteArrayOutputStream();
 
+
+
     @Test
     public void testReserveBook() throws Exception {
         //given

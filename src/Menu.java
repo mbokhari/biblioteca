@@ -33,9 +33,9 @@ public class Menu {
                     menuInterface.runItems();
 
                     break;
-                case 2: System.out.println("You have chosen to reserve a book\n Enter the title of the book you want to reserve:");
-                    String reservingTitle = input.next();
-                    library.reserveBook(reservingTitle);
+                case 2: System.out.println("You have chosen to reserve a book");
+                    menuInterface = new BookReserver(library, screenMessage);
+                    menuInterface.runItems();
                     break;
                 case 3: System.out.println("You have chosen to retrieve a book");
                     String retrievingTitle = input.next();

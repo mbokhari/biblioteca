@@ -2,6 +2,7 @@ public class Book {
 
     private String title;
     private Boolean availability;
+    private Notificator message = new Notificator();
 
     public Book(String title) {
         this.title = title;
@@ -11,6 +12,10 @@ public class Book {
     public void reserveBook(String title) {
         if ((this.title.equals(title)) && (availability)) {
             availability = false;
+            message.displayReservationConfirmationMessage();
+        }
+        else {
+            message.displayBookNotAvailableMessage();
         }
     }
 

@@ -15,7 +15,5 @@ public class BookLister implements MenuInterface {
 
         ArrayList<Book> bookList = library.returnAllBooksInLibrary();
         screenMessage.displayAllBooksInLibrary(bookList);
-
-        //To change body of implemented methods use File | Settings | File Templates.
     }
 }
