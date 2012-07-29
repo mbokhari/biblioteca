@@ -6,8 +6,8 @@ public class Menu {
 
     private ArrayList<String> menuOptions = new ArrayList();
     private static Scanner input = new Scanner(System.in);
-    private Notificator notifier = new Notificator();
-
+    private Notificator screenMessage;
+    private Library library;
 
 
     public Menu() {
@@ -17,17 +17,21 @@ public class Menu {
         menuOptions.add("Quit");
     }
 
-
-    public ArrayList<String> returnAllMenuItems() {
-        return menuOptions;
+    public Menu(Library library, Notificator screenMessage){
+        this.library = library;
+        this.screenMessage = screenMessage;
     }
 
 
-    public void menuSelection(Library library, int selection) {
+
+    public MenuInterface menuSelection(int selection) {
+
+        MenuInterface menuInterface = null;
 
             switch (selection){
-                case 1: System.out.println("You have chosen to view all the books in the library");
-                    library.returnAllBooksInLibrary();
+                case 1: menuInterface = new BookLister(screenMessage, library);
+                    menuInterface.runItems();
+
                     break;
                 case 2: System.out.println("You have chosen to reserve a book\n Enter the title of the book you want to reserve:");
                     String reservingTitle = input.next();
@@ -40,10 +44,11 @@ public class Menu {
                 case 4: System.out.println("Quitting...");
                     System.exit(1);
                     break;
-                default: notifier.displayErrorMessageWhenSelectingNonValidOption();
+                default: screenMessage.displayErrorMessageWhenSelectingNonValidOption();
             }
+
+        return menuInterface;
+
     }
-
-
 }
 

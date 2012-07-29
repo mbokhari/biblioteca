@@ -10,25 +10,6 @@ public class LibraryTest {
     final ByteArrayOutputStream outputReader = new ByteArrayOutputStream();
 
     @Test
-    public void testPrintAllBooksInLibrary(){
-        //given
-        ArrayList<Book> books = new ArrayList<Book>();
-        Book aBook = new Book("The Secret History");
-        Book an0therBook = new Book("The Colour of Magic");
-        books.add(aBook);
-        books.add(an0therBook) ;
-        Library library = new Library(books);
-        System.setOut(new PrintStream(outputReader));
-
-        //when
-        library.returnAllBooksInLibrary();
-        final String standardOutput = outputReader.toString().trim();
-
-        //then
-        assertThat(standardOutput, is("The Secret History\nThe Colour of Magic"));
-    }
-
-    @Test
     public void testReserveBook() throws Exception {
         //given
         ArrayList<Book> books = new ArrayList<Book>();

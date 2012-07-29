@@ -70,7 +70,7 @@ public class NotificatorTest {
         message.displayMenu();
         final String standardOutput = outputReader.toString().trim();
         //then
-        assertThat(standardOutput, is("Please choose an option from the following\n[1] View all books\n[2] Reserve book\n[3] Retrieve a book\n[4] Quit"));
+        assertThat(standardOutput, is("Please choose an option from the following\n[1] View all books\n[2] Reserve book\n[3] Retrieve a book\n[4] Quit\n\n>>"));
 
     }
 
@@ -91,3 +91,4 @@ public class NotificatorTest {
 
 
 }
+
