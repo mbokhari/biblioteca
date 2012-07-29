@@ -1,4 +1,5 @@
 import org.junit.Test;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -6,23 +7,24 @@ import java.util.ArrayList;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-public class MenuTest {
+public class BookListerTest {
+
     final ByteArrayOutputStream outputReader = new ByteArrayOutputStream();
 
     @Test
-    public void testSelectMenuOption() throws Exception {
-        //given
+    public void testRunItem() throws Exception {
+
+        //Given
         ArrayList<Book> books = new ArrayList<Book>();
         books.add(new Book("The Secret History"));
-        Library library = new Library(books);
-        Menu menu = new Menu(library, new Notificator());
+        BookLister bookLister = new BookLister(new Notificator(),new Library(books));
         System.setOut(new PrintStream(outputReader));
 
-        //when
-        menu.menuSelection(1);
+        //When
+        bookLister.runItems();
         final String standardOutput = outputReader.toString().trim();
 
-        //then
+        //Then
         assertThat(standardOutput, is("Printing all books in Library\nThe Secret History"));
     }
 }
