@@ -9,8 +9,8 @@ public class Book {
         availability = true;
     }
 
-    public void reserveBook(String title) {
-        if ((this.title.equals(title)) && (availability)) {
+    public void reserveBook() {
+        if (availability) {
             availability = false;
             message.displayReservationConfirmationMessage();
         }

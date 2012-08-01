@@ -13,13 +13,6 @@ public class Library  {
         return books;
     }
 
-
-    public void reserveBook(String title) {
-        for (Book book : books) {
-            book.reserveBook(title);
-        }
-    }
-
     public Book retrieveBook(String title) {
         for (Book book : books) {
             return book.retrieveBookByTitle(title);

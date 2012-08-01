@@ -3,6 +3,7 @@ import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -15,6 +16,7 @@ public class BookListerTest {
     public void testRunItem() throws Exception {
 
         //Given
+
         ArrayList<Book> books = new ArrayList<Book>();
         books.add(new Book("The Secret History"));
         BookLister bookLister = new BookLister(new Notificator(),new Library(books));

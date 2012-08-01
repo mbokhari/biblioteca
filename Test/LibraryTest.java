@@ -11,18 +11,7 @@ public class LibraryTest {
 
 
 
-    @Test
-    public void testReserveBook() throws Exception {
-        //given
-        ArrayList<Book> books = new ArrayList<Book>();
-        Book aBook = new Book("Harry Potter");
-        books.add(aBook);
-        Library library = new Library(books);
-        //when
-        library.reserveBook("Harry Potter");
-        //then
-        assertThat(aBook.statusOfBook(), is("Reserved"));
-    }
+
 
     @Test
     public void testRetrieveBook() {
