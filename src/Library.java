@@ -6,7 +6,7 @@ public class Library  {
     private ArrayList<Book> books = new ArrayList<Book>();
 
     public Library(ArrayList<Book> books) {
-        this.books = books;
+        this.books = this.books;
     }
 
     public ArrayList<Book> returnAllBooksInLibrary() {

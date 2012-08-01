@@ -4,6 +4,7 @@ import java.util.ArrayList;
 public class BookRetriever implements MenuInterface {
 
     private Library library = new Library(new ArrayList<Book>());
+    private Notificator screenMessage = new Notificator();
 
     public BookRetriever(Library library) {
         this.library = library;
@@ -20,6 +21,12 @@ public class BookRetriever implements MenuInterface {
 
     @Override
     public void runItems() throws IOException {
-        //To change body of implemented methods use File | Settings | File Templates.
+
+        screenMessage.printMessage("Please enter the title of the book you're trying to retrieve : ");
+
+        InputReader inputReader = new InputReader();
+        String titleOfBookYouWantToRetrieve = inputReader.readUserInput();
+
+        retrieveBooks(titleOfBookYouWantToRetrieve);
     }
 }

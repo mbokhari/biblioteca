@@ -1,3 +1,4 @@
+import com.sun.xml.internal.bind.v2.model.core.ID;
 import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -15,7 +16,7 @@ public class MenuTest {
         ArrayList<Book> books = new ArrayList<Book>();
         books.add(new Book("The Secret History"));
         Library library = new Library(books);
-        Menu menu = new Menu(library, new Notificator());
+        Menu menu = new Menu(library);
         System.setOut(new PrintStream(outputReader));
 
         //when
@@ -25,4 +26,5 @@ public class MenuTest {
         //then
         assertThat(standardOutput, is("Printing all books in Library\nThe Secret History"));
     }
+//
 }

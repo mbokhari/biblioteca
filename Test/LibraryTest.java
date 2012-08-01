@@ -1,3 +1,4 @@
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
@@ -8,20 +9,27 @@ import static org.junit.Assert.assertThat;
 
 public class LibraryTest {
     final ByteArrayOutputStream outputReader = new ByteArrayOutputStream();
+    private Library library;
+    private ArrayList<Book> books = new ArrayList<Book>();
+
+    @Before
+    public void setUp() throws Exception {
+        library = new Library(books);
+    }
 
     @Test
-    public void testRetrieveBook() {
+    public void testReturnsAllItemsInLibrary() throws Exception {
         //given
-        ArrayList<Book> books = new ArrayList<Book>();
-        Book aBook = new Book("Harry Potter");
-        books.add(aBook);
-        Library library = new Library(books);
-        BookRetriever bookRetriever = new BookRetriever(library);
+        books.add(new Book("The Secret History"));
+        books.add(new Book("The Night Circus"));
+        books.add(new Book("50 Shades of Grey Bleuuurgh"));
 
         //when
-        Book retrievedBook = bookRetriever.retrieveBooks("Harry Potter");
+        ArrayList<Book> bookList = library.returnAllBooksInLibrary();
 
         //then
-        assertThat(aBook, is(retrievedBook));
+        assertThat(bookList.size(), is(3));
+
+
     }
 }

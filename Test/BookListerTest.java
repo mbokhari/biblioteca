@@ -1,3 +1,4 @@
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
@@ -10,16 +11,24 @@ import static org.junit.Assert.assertThat;
 
 public class BookListerTest {
 
+    private BookLister bookLister;
+    private Library library;
+    private ArrayList<Book> books = new ArrayList<Book>();
     final ByteArrayOutputStream outputReader = new ByteArrayOutputStream();
+
+    @Before
+    public void setUp() {
+
+        library = new Library(books);
+        this.bookLister = new BookLister(library);
+
+    }
 
     @Test
     public void testRunItem() throws Exception {
 
         //Given
-
-        ArrayList<Book> books = new ArrayList<Book>();
         books.add(new Book("The Secret History"));
-        BookLister bookLister = new BookLister(new Notificator(),new Library(books));
         System.setOut(new PrintStream(outputReader));
 
         //When

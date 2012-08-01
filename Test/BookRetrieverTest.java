@@ -21,4 +21,5 @@ public class BookRetrieverTest {
         //Then
         assertThat(aBook, is(retrievedBook));
     }
+
 }

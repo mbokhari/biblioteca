@@ -6,9 +6,9 @@ import java.util.Scanner;
 public class BookReserver implements MenuInterface {
 
     private Library library = new Library(new ArrayList<Book>());
-    private Notificator screenMessage;
+    private Notificator screenMessage = new Notificator();
 
-    public BookReserver(Library library, Notificator screenMessage) {
+    public BookReserver(Library library) {
         this.library = library;
         this.screenMessage = screenMessage;
     }
@@ -26,6 +26,9 @@ public class BookReserver implements MenuInterface {
         for (Book book : library.returnAllBooksInLibrary()) {
             if ((book.getTitle().equals(title)) && (book.statusOfBook().equals("Available"))) {
                 book.reserveBook();
+            }
+            else {
+                screenMessage.displayBookNotAvailableMessage();
             }
         }
     }

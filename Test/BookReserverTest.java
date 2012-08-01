@@ -1,8 +1,8 @@
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -10,38 +10,48 @@ import static org.junit.Assert.assertThat;
 
 public class BookReserverTest {
 
+    private Notificator notificator = new Notificator();
+    private BookReserver bookReserver;
+    private Library library;
+    private ArrayList<Book> books = new ArrayList<Book>();
     final ByteArrayOutputStream outputReader = new ByteArrayOutputStream();
+
+    @Before
+    public void setUp() {
+
+        library = new Library(books);
+        this.bookReserver = new BookReserver(library);
+
+    }
 
     @Test
     public void testReserveBook() throws Exception {
         //given
-        ArrayList<Book> books = new ArrayList<Book>();
         Book aBook = new Book("Harry Potter");
         books.add(aBook);
-        Library library = new Library(books);
-        BookReserver bookReserver= new BookReserver(library,  new Notificator());
+
         //when
         bookReserver.reserveBook("Harry Potter");
+
         //then
         assertThat(aBook.statusOfBook(), is("Reserved"));
     }
 
     @Test
-    public void testRunItem() throws Exception {
-
+    public void testCanOnlyReserveABookThatIsAvailable() throws Exception {
         //given
-        InputReader inputReader = new InputReader();
-        ArrayList<Book> books = new ArrayList<Book>();
-        books.add(new Book("The Secret History"));
-        BookReserver bookReserver = new BookReserver(new Library(books), new Notificator());
+        Book aBook = new Book("Harry Potter");
+        books.add(aBook);
+        bookReserver.reserveBook("Harry Potter");
         System.setOut(new PrintStream(outputReader));
 
         //when
-        bookReserver.runItems();
-
-        final String standardOutput = outputReader.toString().trim();
+        bookReserver.reserveBook("HarryPotter");
+        String standardOutput = outputReader.toString().trim() ;
 
         //then
-        assertThat(standardOutput, is(""));
+        assertThat(standardOutput,is("The book is currently not available")) ;
+
+
     }
 }

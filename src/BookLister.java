@@ -3,11 +3,10 @@ import java.util.Scanner;
 
 public class BookLister implements MenuInterface {
 
-    private Notificator screenMessage;
+    private Notificator screenMessage = new Notificator();
     private Library library;
 
-    public BookLister(Notificator screenMessage, Library library) {
-        this.screenMessage = screenMessage;
+    public BookLister(Library library) {
         this.library = library;
     }
 
