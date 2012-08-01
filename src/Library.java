@@ -12,12 +12,4 @@ public class Library  {
     public ArrayList<Book> returnAllBooksInLibrary() {
         return books;
     }
-
-    public Book retrieveBook(String title) {
-        for (Book book : books) {
-            return book.retrieveBookByTitle(title);
-        }
-
-        return null;
-    }
 }

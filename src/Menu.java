@@ -37,8 +37,8 @@ public class Menu {
                 break;
             case 3:
                 System.out.println("You have chosen to retrieve a book");
-                String retrievingTitle = input.next();
-                library.retrieveBook(retrievingTitle);
+                menuInterface = new BookRetriever(library);
+                menuInterface.runItems();
                 break;
             case 4:
                 System.out.println("Quitting...");

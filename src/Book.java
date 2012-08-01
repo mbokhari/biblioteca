@@ -31,12 +31,6 @@ public class Book {
         }
     }
 
-    public Book retrieveBookByTitle(String title) {
-        if (this.title.equals(title));{
-            return this;
-        }
-    }
-
     public String getTitle() {
         return title;
     }

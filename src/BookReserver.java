@@ -30,15 +30,3 @@ public class BookReserver implements MenuInterface {
         }
     }
 }
-
-/**
- Boolean reserved = false;
-
-
- for (Book book : bookCollection.returnBookList()) {
- if (title.equals(book.getTitle()) && !book.getReserved()) {
- book.setStatusToReserved();
- reserved = true;
- break;
- }
- }           **/
