@@ -17,8 +17,5 @@ public class Main {
 
         Menu menu = new Menu(library);
         menu.menuSelection(selection);
-
-
-
     }
 }

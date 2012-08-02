@@ -7,15 +7,15 @@ public class Notificator {
     }
 
     public void displayErrorMessageWhenSelectingNonValidOption() {
-        System.out.println("The menu option you have selected is not valid");
+        System.out.println("Select a valid option!!");
     }
 
     public void displayReservationConfirmationMessage() {
-        System.out.println("The reservation has been successful");
+        System.out.println("Thank You! Enjoy the book");
     }
 
     public void displayBookNotAvailableMessage() {
-        System.out.println("The book is currently not available");
+        System.out.println("Sorry we don't have that book yet.");
     }
 
     public void displayMenu(){
@@ -23,7 +23,8 @@ public class Notificator {
         System.out.println("[1] View all books");
         System.out.println("[2] Reserve book");
         System.out.println("[3] Retrieve a book");
-        System.out.println("[4] Quit");
+        System.out.println("[4] Check library number");
+        System.out.println("[5] Quit");
 
         System.out.println("\n>>");
     }
@@ -37,5 +38,9 @@ public class Notificator {
 
     public void printMessage(String message) {
         System.out.println(message);
+    }
+
+    public void LibraryCheckerMessage() {
+        System.out.println("Please talk to Librarian. Thank you.");
     }
 }

@@ -49,7 +49,7 @@ public class BookReserverTest {
         String standardOutput = outputReader.toString().trim() ;
 
         //then
-        assertThat(standardOutput,is("The book is currently not available")) ;
+        assertThat(standardOutput,is("Sorry we don't have that book yet.")) ;
 
 
     }

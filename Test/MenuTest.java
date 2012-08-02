@@ -1,4 +1,6 @@
 import com.sun.xml.internal.bind.v2.model.core.ID;
+import org.hamcrest.Matcher;
+import org.junit.Before;
 import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -9,13 +11,19 @@ import static org.junit.Assert.assertThat;
 
 public class MenuTest {
     final ByteArrayOutputStream outputReader = new ByteArrayOutputStream();
+    private Library library;
+    private Menu menu;
+
+    @Before
+    public void setUp() throws Exception {
+        library = new Library();
+        menu = new Menu(library);
+    }
 
     @Test
     public void testSelectMenuOption() throws Exception {
         //given
-        Library library = new Library();
         library.addBookToLibrary("The Secret History");
-        Menu menu = new Menu(library);
         System.setOut(new PrintStream(outputReader));
 
         //when
@@ -25,5 +33,18 @@ public class MenuTest {
         //then
         assertThat(standardOutput, is("Printing all books in Library\nThe Secret History"));
     }
-//
+
+    @Test
+    public void testNonValidOption() throws Exception {
+        //given
+        Notificator screenMessage = new Notificator();
+        System.setOut(new PrintStream(outputReader));
+
+        //when
+        menu.menuSelection(23);
+        String standardOutput = outputReader.toString().trim();
+
+        //then
+        assertThat(standardOutput, is("The menu option you have selected is not valid"));
+    }
 }

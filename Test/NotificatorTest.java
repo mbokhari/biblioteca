@@ -88,7 +88,5 @@ public class NotificatorTest {
         assertThat(standardOutput, is("Printing all books in Library\nThe Secret History"));
 
     }
-
-
 }
 

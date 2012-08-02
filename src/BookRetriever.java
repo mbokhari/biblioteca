@@ -16,6 +16,7 @@ public class BookRetriever implements MenuInterface {
                 return book;
             }
         }
+        screenMessage.displayBookNotAvailableMessage();
         return null;
     }
 

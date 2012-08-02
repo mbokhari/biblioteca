@@ -38,6 +38,8 @@ public class Menu {
                 menuInterface.runItems();
                 break;
             case 4:
+
+            case 5:
                 System.out.println("Quitting...");
                 System.exit(1);
                 break;

@@ -29,8 +29,5 @@ public class LibraryTest {
         //then
         assertThat(bookList.size(), is(3));
 
-
     }
-
-
 }
