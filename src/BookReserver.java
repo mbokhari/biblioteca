@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class BookReserver implements MenuInterface {
 
-    private Library library = new Library(new ArrayList<Book>());
+    private Library library = new Library();
     private Notificator screenMessage = new Notificator();
 
     public BookReserver(Library library) {

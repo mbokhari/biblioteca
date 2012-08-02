@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String [ ] args) throws IOException {
-        Library library = new Library(new ArrayList<Book>());
+        Library library = new Library();
         Notificator message = new Notificator();
         Scanner input = new Scanner(System.in);
 

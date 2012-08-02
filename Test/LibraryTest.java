@@ -10,19 +10,18 @@ import static org.junit.Assert.assertThat;
 public class LibraryTest {
     final ByteArrayOutputStream outputReader = new ByteArrayOutputStream();
     private Library library;
-    private ArrayList<Book> books = new ArrayList<Book>();
 
     @Before
     public void setUp() throws Exception {
-        library = new Library(books);
+        library = new Library();
     }
 
     @Test
     public void testReturnsAllItemsInLibrary() throws Exception {
         //given
-        books.add(new Book("The Secret History"));
-        books.add(new Book("The Night Circus"));
-        books.add(new Book("50 Shades of Grey Bleuuurgh"));
+        library.addBookToLibrary("The Secret History");
+        library.addBookToLibrary("The Night Circus");
+        library.addBookToLibrary("50 Shades of Grey Bleuuurgh");
 
         //when
         ArrayList<Book> bookList = library.returnAllBooksInLibrary();
@@ -32,4 +31,6 @@ public class LibraryTest {
 
 
     }
+
+
 }

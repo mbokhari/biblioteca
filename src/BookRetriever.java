@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class BookRetriever implements MenuInterface {
 
-    private Library library = new Library(new ArrayList<Book>());
+    private Library library = new Library();
     private Notificator screenMessage = new Notificator();
 
     public BookRetriever(Library library) {

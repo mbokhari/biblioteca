@@ -1,5 +1,6 @@
 import org.junit.Before;
 import org.junit.Test;
+import sun.awt.windows.ThemeReader;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -13,13 +14,12 @@ public class BookListerTest {
 
     private BookLister bookLister;
     private Library library;
-    private ArrayList<Book> books = new ArrayList<Book>();
     final ByteArrayOutputStream outputReader = new ByteArrayOutputStream();
 
     @Before
     public void setUp() {
 
-        library = new Library(books);
+        library = new Library();
         this.bookLister = new BookLister(library);
 
     }
@@ -28,7 +28,7 @@ public class BookListerTest {
     public void testRunItem() throws Exception {
 
         //Given
-        books.add(new Book("The Secret History"));
+        library.addBookToLibrary("The Secret History");
         System.setOut(new PrintStream(outputReader));
 
         //When

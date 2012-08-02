@@ -19,7 +19,7 @@ public class BookReserverTest {
     @Before
     public void setUp() {
 
-        library = new Library(books);
+        library = new Library();
         this.bookReserver = new BookReserver(library);
 
     }
@@ -27,8 +27,8 @@ public class BookReserverTest {
     @Test
     public void testReserveBook() throws Exception {
         //given
-        Book aBook = new Book("Harry Potter");
-        books.add(aBook);
+
+        Book aBook = library.addBookToLibrary("Harry Potter");
 
         //when
         bookReserver.reserveBook("Harry Potter");
@@ -40,13 +40,12 @@ public class BookReserverTest {
     @Test
     public void testCanOnlyReserveABookThatIsAvailable() throws Exception {
         //given
-        Book aBook = new Book("Harry Potter");
-        books.add(aBook);
+        library.addBookToLibrary("Harry Potter");
         bookReserver.reserveBook("Harry Potter");
         System.setOut(new PrintStream(outputReader));
 
         //when
-        bookReserver.reserveBook("HarryPotter");
+        bookReserver.reserveBook("Harry Potter");
         String standardOutput = outputReader.toString().trim() ;
 
         //then

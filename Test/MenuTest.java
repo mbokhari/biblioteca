@@ -13,9 +13,8 @@ public class MenuTest {
     @Test
     public void testSelectMenuOption() throws Exception {
         //given
-        ArrayList<Book> books = new ArrayList<Book>();
-        books.add(new Book("The Secret History"));
-        Library library = new Library(books);
+        Library library = new Library();
+        library.addBookToLibrary("The Secret History");
         Menu menu = new Menu(library);
         System.setOut(new PrintStream(outputReader));
 
