@@ -18,4 +18,7 @@ public class Main {
         Menu menu = new Menu(library);
         menu.menuSelection(selection);
     }
+
+    //create a runner method so that my main method isn't soo long and tedious.
+    //perhaps make another method which the main method calls to run all the other stuff
 }

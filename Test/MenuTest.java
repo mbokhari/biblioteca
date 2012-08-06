@@ -37,7 +37,6 @@ public class MenuTest {
     @Test
     public void testNonValidOption() throws Exception {
         //given
-        Notificator screenMessage = new Notificator();
         System.setOut(new PrintStream(outputReader));
 
         //when

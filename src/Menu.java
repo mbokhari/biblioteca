@@ -1,3 +1,5 @@
+import sun.rmi.log.LogInputStream;
+
 import java.io.IOException;
 import java.util.*;
 
@@ -28,18 +30,23 @@ public class Menu {
 
                 break;
             case 2:
+                menuInterface = new MovieLister(library);
+                menuInterface.runItems();
+            case 3:
                 System.out.println("You have chosen to reserve a book");
                 menuInterface = new BookReserver(library);
                 menuInterface.runItems();
                 break;
-            case 3:
+            case 4:
                 System.out.println("You have chosen to retrieve a book");
                 menuInterface = new BookRetriever(library);
                 menuInterface.runItems();
                 break;
-            case 4:
-
             case 5:
+                menuInterface = new LibraryNumberChecker();
+                menuInterface.runItems();
+                break;
+            case 6:
                 System.out.println("Quitting...");
                 System.exit(1);
                 break;

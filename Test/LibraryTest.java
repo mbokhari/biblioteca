@@ -17,7 +17,7 @@ public class LibraryTest {
     }
 
     @Test
-    public void testReturnsAllItemsInLibrary() throws Exception {
+    public void testReturnsAllBooksInLibrary() throws Exception {
         //given
         library.addBookToLibrary("The Secret History");
         library.addBookToLibrary("The Night Circus");
@@ -29,5 +29,17 @@ public class LibraryTest {
         //then
         assertThat(bookList.size(), is(3));
 
+    }
+
+    @Test
+    public void testReturnAllMoviesInLibrary() throws Exception {
+        //given
+        library.addMovieToLibrary("The Dark Knight Returns","Christopher Nolan", "9.5");
+
+        //when
+        ArrayList<Movie> movieList = library.returnAllMoviesInLibrary();
+
+        //then
+        assertThat(movieList.size(), is(1));
     }
 }

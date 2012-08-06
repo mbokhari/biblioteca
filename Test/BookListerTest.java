@@ -1,11 +1,8 @@
 import org.junit.Before;
 import org.junit.Test;
-import sun.awt.windows.ThemeReader;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.Scanner;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;

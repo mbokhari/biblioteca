@@ -21,10 +21,11 @@ public class Notificator {
     public void displayMenu(){
         System.out.println("Please choose an option from the following");
         System.out.println("[1] View all books");
-        System.out.println("[2] Reserve book");
-        System.out.println("[3] Retrieve a book");
-        System.out.println("[4] Check library number");
-        System.out.println("[5] Quit");
+        System.out.println("[2] View all movies");
+        System.out.println("[3] Reserve book");
+        System.out.println("[4] Retrieve a book");
+        System.out.println("[5] Check library number");
+        System.out.println("[6] Quit");
 
         System.out.println("\n>>");
     }
@@ -42,5 +43,12 @@ public class Notificator {
 
     public void LibraryCheckerMessage() {
         System.out.println("Please talk to Librarian. Thank you.");
+    }
+
+    public void displayAllMoviesInLibrary(ArrayList<Movie> movies) {
+        System.out.println("Printing all movies in Library");
+        for (Movie movie : movies) {
+            movie.printMovie();
+        }
     }
 }
