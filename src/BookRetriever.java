@@ -1,5 +1,4 @@
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class BookRetriever implements MenuInterface {
 
@@ -26,7 +25,7 @@ public class BookRetriever implements MenuInterface {
         screenMessage.printMessage("Please enter the title of the book you're trying to retrieve : ");
 
         InputReader inputReader = new InputReader();
-        String titleOfBookYouWantToRetrieve = inputReader.readUserInput();
+        String titleOfBookYouWantToRetrieve = inputReader.readUserInputString();
 
         retrieveBooks(titleOfBookYouWantToRetrieve);
     }

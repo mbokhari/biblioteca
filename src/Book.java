@@ -20,7 +20,7 @@ public class Book {
     }
 
     public void printBook(){
-        System.out.println(title);
+        System.out.println("* " + title);
     }
 
     public String statusOfBook(){

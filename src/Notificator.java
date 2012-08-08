@@ -19,7 +19,7 @@ public class Notificator {
     }
 
     public void displayMenu(){
-        System.out.println("Please choose an option from the following");
+        System.out.println("\n\n\nPlease choose an option from the following");
         System.out.println("[1] View all books");
         System.out.println("[2] View all movies");
         System.out.println("[3] Reserve book");
@@ -46,7 +46,7 @@ public class Notificator {
     }
 
     public void displayAllMoviesInLibrary(ArrayList<Movie> movies) {
-        System.out.println("Printing all movies in Library");
+        System.out.println("\nPrinting all movies in Library");
         for (Movie movie : movies) {
             movie.printMovie();
         }

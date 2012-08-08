@@ -27,11 +27,11 @@ public class Menu {
             case 1:
                 menuInterface = new BookLister(library);
                 menuInterface.runItems();
-
                 break;
             case 2:
                 menuInterface = new MovieLister(library);
                 menuInterface.runItems();
+                break;
             case 3:
                 System.out.println("You have chosen to reserve a book");
                 menuInterface = new BookReserver(library);
@@ -55,7 +55,6 @@ public class Menu {
         }
 
         return menuInterface;
-
     }
 }
 

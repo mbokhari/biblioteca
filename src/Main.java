@@ -1,24 +1,28 @@
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Main {
 
+    //maybe use event objects and listeners to make things happen. May have to implement new interface or something along those lines.
+
+
     public static void main(String [ ] args) throws IOException {
         Library library = new Library();
+        Menu menu = new Menu(library);
         Notificator message = new Notificator();
-        Scanner input = new Scanner(System.in);
+        InputReader inputReader = new InputReader();
+
+        library.addBookToLibrary("The Hunger Games");
+        library.addBookToLibrary("Hello");
+        library.addMovieToLibrary("Avatar", "James Cameron", "8.0");
 
         message.displayWelcomeMessage();
 
+        while(true) {
         message.displayMenu();
-        int selection = input.nextInt();
-        input.nextLine();
-
-        Menu menu = new Menu(library);
+        int selection = inputReader.readUserInputInt();
         menu.menuSelection(selection);
-    }
 
-    //create a runner method so that my main method isn't soo long and tedious.
-    //perhaps make another method which the main method calls to run all the other stuff
+        inputReader.backToMainMenu();
+        }
+    }
 }

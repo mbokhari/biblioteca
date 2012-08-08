@@ -22,13 +22,16 @@ public class CheckLibraryNumberTest {
         assertThat(standardOutput, is("Please talk to Librarian. Thank you."));
     }
 
-//    @Test
-//    public void testCreateLibraryNumbers() throws Exception {
-//        User user = new User();
-//        User anotherUser = new User();
-//        String returnedLibNum = user.returnLibraryNumber();
-//        String anotherReturnedLibNum = anotherUser.returnLibraryNumber();
-//        assertThat(returnedLibNum, is("11111x11"));
-//        assertThat(anotherReturnedLibNum, is("11111x12"));
-//    }
+    @Test
+    public void testFormatLibNum() throws Exception {
+        //given
+        LibraryNumberGenerator libraryNumberGenerator = new LibraryNumberGenerator();
+
+        //when
+        String s = libraryNumberGenerator.formatLibraryNumber(1112345);
+
+        //then
+        assertThat(s, is("111-2345"));
+
+    }
 }
