@@ -10,10 +10,10 @@ import static org.junit.Assert.assertThat;
 
 public class BookReserverTest {
 
-    private Notificator notificator = new Notificator();
+
     private BookReserver bookReserver;
     private Library library;
-    private ArrayList<Book> books = new ArrayList<Book>();
+
     final ByteArrayOutputStream outputReader = new ByteArrayOutputStream();
 
     @Before
@@ -50,7 +50,6 @@ public class BookReserverTest {
 
         //then
         assertThat(standardOutput,is("Sorry we don't have that book yet.")) ;
-
 
     }
 }
