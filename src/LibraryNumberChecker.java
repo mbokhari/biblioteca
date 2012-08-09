@@ -1,3 +1,5 @@
+import sun.tools.tree.IfStatement;
+
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
@@ -6,25 +8,24 @@ import java.util.ArrayList;
 public class LibraryNumberChecker implements MenuInterface {
     private Notificator screenMessage = new Notificator();
     private Library library = new Library();
-//    private LibraryNumberGenerator libNumGen = new LibraryNumberGenerator();
-//    private LogIn logIn = new LogIn(library,libNumGen);
+    private LibraryNumberGenerator libNumGen = new LibraryNumberGenerator();
+    private LogIn logIn = new LogIn(library, libNumGen);
 
     public LibraryNumberChecker(Library library) {
         this.library = library;
 //        this.libNumGen = libNumGen;
-//        this.logIn = logIn;
+        this.logIn = logIn;
     }
 
     @Override
     public void runItems() throws IOException {
         for (Member member : library.returnAllMembers()) {
-            if
+            if (member.checkIfLoggedIn() == true) {
+                member.printLibraryNumber();
+            } else {
+                screenMessage.LibraryCheckerMessage();
+            }
         }
-
-
-        screenMessage.LibraryCheckerMessage();
     }
-
-
 
 }

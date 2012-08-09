@@ -45,7 +45,7 @@ public class Menu {
                 menuInterface.runItems();
                 break;
             case 5:
-                menuInterface = new LibraryNumberChecker();
+                menuInterface = new LibraryNumberChecker(library);
                 menuInterface.runItems();
                 break;
             case 6:

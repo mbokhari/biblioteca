@@ -4,6 +4,7 @@ public class Member {
     private String password;
     private long newLibNum;
     private boolean loggedIn = false;
+    private Notificator screenMessage = new Notificator();
 
 
     public Member(LibraryNumberGenerator libNumGen, String password) {
@@ -16,8 +17,13 @@ public class Member {
         return password;
     }
 
+    public void printLibraryNumber() {
+        screenMessage.printMessage(getLibraryNumber());
+    }
+
     public String getLibraryNumber() {
         return libNumGen.formatLibraryNumber(newLibNum);
+
     }
 
     public boolean memberLogIn(){
