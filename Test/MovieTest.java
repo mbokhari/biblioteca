@@ -18,7 +18,7 @@ public class MovieTest {
         System.setOut(new PrintStream(byteArrayOutputStream));
         aMovie.printMovie();
         String standardOutput = byteArrayOutputStream.toString().trim();
-        assertThat(standardOutput, is("Title: The Matrix   Director: Andy Wachowski    Rating: 8.7"));
+        assertThat(standardOutput, is("* Title: The Matrix   Director: Andy Wachowski    Rating: 8.7"));
 
     }
 
@@ -28,7 +28,7 @@ public class MovieTest {
         System.setOut(new PrintStream(byteArrayOutputStream));
         aMovie.printMovie();
         String standardOutput = byteArrayOutputStream.toString().trim();
-        assertThat(standardOutput, is("Title: The Lord of the Rings   Director: Christopher Nolan    Rating: N/A"));
+        assertThat(standardOutput, is("* Title: The Lord of the Rings   Director: Christopher Nolan    Rating: N/A"));
     }
 
     @Test
@@ -38,7 +38,7 @@ public class MovieTest {
         System.setOut(new PrintStream(byteArrayOutputStream));
         aMovie.printMovie();
         String standardOutput = byteArrayOutputStream.toString().trim();
-        assertThat(standardOutput, is("Title: The Lord of the Rings   Director: Christopher Nolan    Rating: 8.7"));
+        assertThat(standardOutput, is("* Title: The Lord of the Rings   Director: Christopher Nolan    Rating: 8.7"));
 
 
     }

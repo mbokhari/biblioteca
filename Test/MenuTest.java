@@ -32,7 +32,7 @@ public class MenuTest {
         final String standardOutput = outputReader.toString().trim();
 
         //then
-        assertThat(standardOutput, is("Printing all books in Library\nThe Secret History"));
+        assertThat(standardOutput, is("Printing all books in Library\n* The Secret History"));
     }
 
     @Test
@@ -45,6 +45,6 @@ public class MenuTest {
         String standardOutput = outputReader.toString().trim();
 
         //then
-        assertThat(standardOutput, is("The menu option you have selected is not valid"));
+        assertThat(standardOutput, is("Select a valid option!!"));
     }
 }

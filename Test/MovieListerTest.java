@@ -33,6 +33,6 @@ public class MovieListerTest {
             final String standardOutput = outputReader.toString().trim();
 
             //Then
-            assertThat(standardOutput, is("Printing all movies in Library\nTitle: Romeo & Juliet   Director: Baz Luhrmann    Rating: 7.3"));
+            assertThat(standardOutput, is("Printing all movies in Library\n\n * Title: Romeo & Juliet   Director: Baz Luhrmann    Rating: 7.3"));
         }
     }
