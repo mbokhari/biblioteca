@@ -9,9 +9,11 @@ public class Menu {
     private static Scanner input = new Scanner(System.in);
     private Notificator screenMessage = new Notificator();
     private Library library;
+    private LibraryNumberGenerator libraryNumberGenerator;
 
-    public Menu(Library library){
+    public Menu(Library library, LibraryNumberGenerator libNumGen){
         this.library = library;
+        this.libraryNumberGenerator = libNumGen;
 
         menuOptions.add("View books");
         menuOptions.add("Reserve books");
@@ -47,6 +49,10 @@ public class Menu {
                 menuInterface.runItems();
                 break;
             case 6:
+                menuInterface = new LogIn(library, libraryNumberGenerator);
+                menuInterface.runItems();
+                break;
+            case 7:
                 System.out.println("Quitting...");
                 System.exit(1);
                 break;

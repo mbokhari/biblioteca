@@ -25,7 +25,8 @@ public class Notificator {
         System.out.println("[3] Reserve book");
         System.out.println("[4] Retrieve a book");
         System.out.println("[5] Check library number");
-        System.out.println("[6] Quit");
+        System.out.println("[6] Log In");
+        System.out.println("[7] Quit");
 
         System.out.println("\n>>");
     }

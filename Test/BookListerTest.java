@@ -33,6 +33,6 @@ public class BookListerTest {
         final String standardOutput = outputReader.toString().trim();
 
         //Then
-        assertThat(standardOutput, is("Printing all books in Library\nThe Secret History"));
+        assertThat(standardOutput, is("Printing all books in Library\n* The Secret History"));
     }
 }

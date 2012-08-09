@@ -17,7 +17,8 @@ public class MenuTest {
     @Before
     public void setUp() throws Exception {
         library = new Library();
-        menu = new Menu(library);
+        LibraryNumberGenerator libNumGen = new LibraryNumberGenerator();
+        menu = new Menu(library, libNumGen);
     }
 
     @Test

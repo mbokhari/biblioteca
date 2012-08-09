@@ -41,7 +41,7 @@ public class NotificatorTest {
         message.displayErrorMessageWhenSelectingNonValidOption();
         final String standardOutput = outputReader.toString().trim();
         //then
-        assertThat(standardOutput, is("The menu option you have selected is not valid"));
+        assertThat(standardOutput, is("Select a valid option!!"));
 
     }
 
@@ -53,7 +53,7 @@ public class NotificatorTest {
         message.displayReservationConfirmationMessage();
         final String standardOutput = outputReader.toString().trim();
         //then
-        assertThat(standardOutput, is("The reservation has been successful"));
+        assertThat(standardOutput, is("Thank You! Enjoy the book"));
     }
 
     @Test
@@ -64,7 +64,7 @@ public class NotificatorTest {
         message.displayBookNotAvailableMessage();
         final String standardOutput = outputReader.toString().trim();
         //then
-        assertThat(standardOutput,is("The book is currently not available"));
+        assertThat(standardOutput,is("Sorry we don't have that book yet."));
     }
 
     @Test
@@ -75,7 +75,8 @@ public class NotificatorTest {
         message.displayMenu();
         final String standardOutput = outputReader.toString().trim();
         //then
-        assertThat(standardOutput, is("Please choose an option from the following\n[1] View all books\n[2] Reserve book\n[3] Retrieve a book\n[4] Quit\n\n>>"));
+        assertThat(standardOutput, is("Please choose an option from the following\n[1] View all books\n[2] View all movies\n[3] Reserve book\n[4]" +
+                " Retrieve a book\n[5] Check library number\n[6] Log In\n[7] Quit\n\n>>"));
 
     }
 
@@ -89,7 +90,7 @@ public class NotificatorTest {
         message.displayAllBooksInLibrary(books);
         final String standardOutput = outputReader.toString().trim();
         //then
-        assertThat(standardOutput, is("Printing all books in Library\nThe Secret History"));
+        assertThat(standardOutput, is("Printing all books in Library\n* The Secret History"));
 
     }
 
@@ -103,7 +104,7 @@ public class NotificatorTest {
         message.displayAllMoviesInLibrary(movies);
         String standardOutput = outputReader.toString().trim();
         //then
-        assertThat(standardOutput, is("Printing all movies in Library\nThe Matrix"));
+        assertThat(standardOutput, is("Printing all movies in Library\n\n * Title: The Matrix   Director: Andy Wachowski    Rating: 8.7"));
 
     }
 }

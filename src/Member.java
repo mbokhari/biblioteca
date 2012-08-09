@@ -1,11 +1,14 @@
 public class Member {
 
-    private LibraryNumberGenerator libNum = new LibraryNumberGenerator();
+    private LibraryNumberGenerator libNumGen;
     private String password;
     private long newLibNum;
+    private boolean loggedIn = false;
 
-    public Member(LibraryNumberGenerator libNum, String password) {
-        newLibNum = libNum.generateNewLibraryNumber();
+
+    public Member(LibraryNumberGenerator libNumGen, String password) {
+        this.libNumGen = libNumGen;
+        newLibNum = libNumGen.generateNewLibraryNumber();
         this.password = password;
         }
 
@@ -14,6 +17,14 @@ public class Member {
     }
 
     public String getLibraryNumber() {
-        return libNum.formatLibraryNumber(newLibNum);
+        return libNumGen.formatLibraryNumber(newLibNum);
+    }
+
+    public boolean memberLogIn(){
+        return loggedIn = true;
+    }
+
+    public boolean checkIfLoggedIn() {
+        return loggedIn;
     }
 }

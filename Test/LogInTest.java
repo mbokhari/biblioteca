@@ -5,19 +5,23 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 public class LogInTest {
-    private LogIn logIn;
+    private LogIn logInPage;
+    private Library library;
     private LibraryNumberGenerator libraryNumberGenerator;
     @Before
     public void setUp() throws Exception {
         libraryNumberGenerator = new LibraryNumberGenerator();
-        logIn =  new LogIn();
+        library = new Library();
+        logInPage =  new LogIn(library, libraryNumberGenerator);
+
     }
 
     @Test
-    public void testloggingIn() throws Exception {
-        boolean attemptedLogIn = logIn.login(1111112, "superjunior");
-        new Member(libraryNumberGenerator, "superjunior");
-        assertThat(attemptedLogIn, is(true));
+    public void testLoggingIn() throws Exception {
+        Member aMember = library.addMember("superjunior");
+        logInPage.login(1111112, "superjunior");
+
+        assertThat(aMember.checkIfLoggedIn(), is(true));
     }
 
 }

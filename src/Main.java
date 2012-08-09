@@ -7,7 +7,8 @@ public class Main {
 
     public static void main(String [ ] args) throws IOException {
         Library library = new Library();
-        Menu menu = new Menu(library);
+        LibraryNumberGenerator libNumGen = new LibraryNumberGenerator();
+        Menu menu = new Menu(library, libNumGen);
         Notificator message = new Notificator();
         InputReader inputReader = new InputReader();
 

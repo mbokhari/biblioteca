@@ -22,8 +22,4 @@ public class LibraryNumberGenerator {
     public long generateNewLibraryNumber() {
         return libraryNumber = libraryNumber + 1;
     }
-
-    public String returnLibraryNumber() {
-        return formatLibraryNumber(libraryNumber);
-    }
 }
