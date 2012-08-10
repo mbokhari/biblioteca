@@ -26,8 +26,15 @@ public class Member {
 
     }
 
-    public boolean memberLogIn(){
-        return loggedIn = true;
+    public boolean memberLogIn(String password){
+        if (this.password.equals(password)) {
+            screenMessage.printMessage("You are now logged in.");
+            return loggedIn = true;
+        }
+        else {
+            screenMessage.printMessage("Log in has been unsuccessful. The library number/password entered is incorrect.");
+        }
+        return loggedIn;
     }
 
     public boolean checkIfLoggedIn() {

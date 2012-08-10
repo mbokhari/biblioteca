@@ -4,7 +4,6 @@ import java.util.ArrayList;
 public class LogIn implements MenuInterface{
     private Library library = new Library();
     private LibraryNumberGenerator libraryNumberGenerator;
-    private boolean loggedIn = false;
     private Notificator screenMessage = new Notificator();
 
     public LogIn(Library library, LibraryNumberGenerator libNumGen) {
@@ -16,11 +15,10 @@ public class LogIn implements MenuInterface{
         String formattedNumber = libraryNumberGenerator.formatLibraryNumber(number);
 
         for (Member member : library.returnAllMembers()) {
-            if (member.getLibraryNumber().equals(formattedNumber) && (member.getPassword().equals(password))) {
-                member.memberLogIn();
+            if (member.getLibraryNumber().equals(formattedNumber)) {
+                member.memberLogIn(password);
             }
         }
-        screenMessage.printMessage("Your log in has been unsuccessful");
 
     }
 

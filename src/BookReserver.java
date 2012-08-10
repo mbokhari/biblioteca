@@ -20,11 +20,8 @@ public class BookReserver implements MenuInterface {
 
     public void reserveBook(String title) {
         for (Book book : library.returnAllBooksInLibrary()) {
-            if ((book.getTitle().equals(title)) && (book.statusOfBook().equals("Available"))) {
+            if (book.getTitle().equals(title)) {
                 book.reserveBook();
-            }
-            else {
-                screenMessage.displayBookNotAvailableMessage();
             }
         }
     }

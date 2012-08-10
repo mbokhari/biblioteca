@@ -12,6 +12,9 @@ public class Main {
         Notificator message = new Notificator();
         InputReader inputReader = new InputReader();
 
+        library.addMember("footballhead");
+        library.addMember("DeanWinchester");
+
         library.addBookToLibrary("The Hunger Games");
         library.addBookToLibrary("Hello");
         library.addMovieToLibrary("Avatar", "James Cameron", "8.0");
